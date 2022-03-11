@@ -12,8 +12,10 @@ class Main{
     InterpolatingTreeMap<InterpolatingDouble, InterpolatingDouble> m_interpolatingSpeeds_bot = new InterpolatingTreeMap<InterpolatingDouble, InterpolatingDouble>();
 
     distanceRPMPoint[] distanceRPMlist = {
-      new distanceRPMPoint(10, 2500, 2500),
-      new distanceRPMPoint(11, 2500, 2500),
+      new distanceRPMPoint(8, 2050, 2200),
+      new distanceRPMPoint(9, 2100, 2250),
+      new distanceRPMPoint(10, 2300, 2400),
+      new distanceRPMPoint(11, 2350, 2450),
       new distanceRPMPoint(12, 2550, 2550),
       new distanceRPMPoint(13, 2600, 2650),
       new distanceRPMPoint(14, 2670, 2720),
@@ -22,12 +24,10 @@ class Main{
       new distanceRPMPoint(17, 3480, 2480),
       new distanceRPMPoint(18, 3565, 2565),
       new distanceRPMPoint(19, 3900, 2550),
-      new distanceRPMPoint(20, 3900, 2550),
+      new distanceRPMPoint(20, 4100, 2350),
       new distanceRPMPoint(21, 4300, 2400),
       new distanceRPMPoint(22, 5200, 2200),
       new distanceRPMPoint(23, 5500, 2400),
-
-
     };
 
     for (distanceRPMPoint point : distanceRPMlist) {
@@ -39,11 +39,11 @@ class Main{
 
     int i;
     double botspeed,topspeed;
-    for (i=8;i<20;i++){
-      double d=i;
+    for (i=8;i<=23;i++){
+      double d=i+0.5;
       botspeed = m_interpolatingSpeeds_bot.getInterpolated(new InterpolatingDouble(d)).value;
       topspeed = m_interpolatingSpeeds_top.getInterpolated(new InterpolatingDouble(d)).value;
-      System.out.printf("distance=%d, botspeed=%.2f, topspeed=%.2f\n",i,botspeed,topspeed);
+      System.out.printf("distance=%.1f, topspeed=%.2f,botspeed=%.2f \n",d,topspeed,botspeed);
     }
   }
 }
